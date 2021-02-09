@@ -9,8 +9,6 @@ Author: Bo Peng (peng.707@buckeyemail.osu.edu)
 
 **Feel free to send me an email if you have any questions.**
 
-```
-
 ## Environments
 
 - python 3.7.3
