@@ -1,4 +1,5 @@
-import torch
+i
+port torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
@@ -28,9 +29,6 @@ class SNBR(nn.Module):
  
         embs   = self.itemEmb(x)
 
-        ##if isEval:
-        ##    pdb.set_trace()
-
         if not isEval:
             embs = F.dropout(embs)
 
@@ -47,5 +45,3 @@ class SNBR(nn.Module):
 
         scores = gate * scores_trans + (1-gate) * his
         return scores, gate
- 
-        ##return scores, 0
