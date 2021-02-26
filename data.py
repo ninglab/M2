@@ -177,8 +177,8 @@ class dataLoader():
         if config.isTrain:
             #generate and store the matrices in the first run
             #and just load these matrices in the following runs
-            ##self.hisMatTra, self.tarMatTra        = self.generateHis(self.trainList, isTrain=1, isEval=0)
-            ##self.hisMatVal, self.tarMatVal        = self.generateHis(self.validList, isTrain=1, isEval=1)
+            self.hisMatTra, self.tarMatTra        = self.generateHis(self.trainList, isTrain=1, isEval=0)
+            self.hisMatVal, self.tarMatVal        = self.generateHis(self.validList, isTrain=1, isEval=1)
 
             ##scipy.sparse.save_npz('his/'+config.dataset+'_hisMatTra_'+str(config.testOrder)+'.npz', self.hisMatTra)
             ##scipy.sparse.save_npz('his/'+config.dataset+'_hisMatVal_'+str(config.testOrder)+'.npz', self.hisMatVal)
@@ -186,17 +186,17 @@ class dataLoader():
             ##with open('his/'+config.dataset+'_tarMatVal_'+str(config.testOrder)+'.pkl', 'wb') as f:
             ##    pickle.dump(self.tarMatVal, f)
 
-            self.hisMatTra = scipy.sparse.load_npz('his/'+config.dataset+'_hisMatTra_'+str(config.testOrder)+'.npz')
-            self.hisMatVal = scipy.sparse.load_npz('his/'+config.dataset+'_hisMatVal_'+str(config.testOrder)+'.npz')
-            self.tarMatTra = scipy.sparse.load_npz('his/'+config.dataset+'_tarMatTra_'+str(config.testOrder)+'.npz')
-            with open('his/'+config.dataset+'_tarMatVal_'+str(config.testOrder)+'.pkl', 'rb') as f:
-                self.tarMatVal = pickle.load(f)
+            ##self.hisMatTra = scipy.sparse.load_npz('his/'+config.dataset+'_hisMatTra_'+str(config.testOrder)+'.npz')
+            ##self.hisMatVal = scipy.sparse.load_npz('his/'+config.dataset+'_hisMatVal_'+str(config.testOrder)+'.npz')
+            ##self.tarMatTra = scipy.sparse.load_npz('his/'+config.dataset+'_tarMatTra_'+str(config.testOrder)+'.npz')
+            ##with open('his/'+config.dataset+'_tarMatVal_'+str(config.testOrder)+'.pkl', 'rb') as f:
+            ##    self.tarMatVal = pickle.load(f)
 
         else:
             #generate and store the matrices in the first run
             #and just load these matrices in the following runs
-            ##self.hisMatTraVal, self.tarMatTraVal  = self.generateHis(self.trainValList, isTrain=0, isEval=0)
-            ##self.hisMatTest, self.tarMatTest      = self.generateHis(self.testList, isTrain=0, isEval=1)
+            self.hisMatTraVal, self.tarMatTraVal  = self.generateHis(self.trainValList, isTrain=0, isEval=0)
+            self.hisMatTest, self.tarMatTest      = self.generateHis(self.testList, isTrain=0, isEval=1)
 
             ##scipy.sparse.save_npz('his_test/'+config.dataset+'_hisMatTraVal_'+str(config.testOrder)+'.npz', self.hisMatTraVal)
             ##scipy.sparse.save_npz('his_test/'+config.dataset+'_hisMatTest_'+str(config.testOrder)+'.npz', self.hisMatTest)
@@ -204,11 +204,11 @@ class dataLoader():
             ##with open('his_test/'+config.dataset+'_tarMatTest_'+str(config.testOrder)+'.pkl', 'wb') as f:
             ##    pickle.dump(self.tarMatTest, f)
 
-            self.hisMatTraVal = scipy.sparse.load_npz('his_test/'+config.dataset+'_hisMatTraVal_'+str(config.testOrder)+'.npz')
-            self.hisMatTest = scipy.sparse.load_npz('his_test/'+config.dataset+'_hisMatTest_'+str(config.testOrder)+'.npz')
-            self.tarMatTraVal = scipy.sparse.load_npz('his_test/'+config.dataset+'_tarMatTraVal_'+str(config.testOrder)+'.npz')
-            with open('his_test/'+config.dataset+'_tarMatTest_'+str(config.testOrder)+'.pkl', 'rb') as f:
-                self.tarMatTest = pickle.load(f)
+            ##self.hisMatTraVal = scipy.sparse.load_npz('his_test/'+config.dataset+'_hisMatTraVal_'+str(config.testOrder)+'.npz')
+            ##self.hisMatTest = scipy.sparse.load_npz('his_test/'+config.dataset+'_hisMatTest_'+str(config.testOrder)+'.npz')
+            ##self.tarMatTraVal = scipy.sparse.load_npz('his_test/'+config.dataset+'_tarMatTraVal_'+str(config.testOrder)+'.npz')
+            ##with open('his_test/'+config.dataset+'_tarMatTest_'+str(config.testOrder)+'.pkl', 'rb') as f:
+            ##    self.tarMatTest = pickle.load(f)
 
             Trans = self.generateTransMat(self.trainValList, self.numItemsTest)
             scipy.sparse.save_npz('weights/transition_matrix_'+config.dataset+'_'+str(config.testOrder)+'.npz', Trans)

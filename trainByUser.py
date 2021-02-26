@@ -6,9 +6,6 @@ from utils import *
 from model.Dream import Dream
 from model.FPMC import FPMC
 from model.SNBR import SNBR
-from model.RNBR import RNBR
-from model.UNBR import UNBR
-from model.FacTor import FacTor
 from model.FREQ import FREQ
 from criterio import Bernoulli, BPR
 import sys
@@ -26,10 +23,6 @@ def trainByUser(dataLoader, config, logger, device):
 
     #preTrain
     outEmbsWeights = None
-    if config.isPreTrain:
-        model = FacTor(numItems, config.dim, device)
-        outEmbsWeights = preTrain(dataLoader, config, model, logger, device)
-
     numBatch = numUsers // config.batchSize + 1
     idxList  = [i for i in range(numUsers)]
 
@@ -37,10 +30,6 @@ def trainByUser(dataLoader, config, logger, device):
         model = Dream(config, numItems, device).to(device)
     elif config.model == 'SNBR':
         model = SNBR(config, numItems, device, outEmbsWeights).to(device)
-    elif config.model == 'RNBR':
-        model = RNBR(config, numItems, device, outEmbsWeights).to(device)
-    elif config.model == 'UNBR':
-        model = UNBR(config, numItems, device, outEmbsWeights).to(device)
     elif config.model == 'FREQ' or config.model == 'FREQP':
         model = FREQ(numItems, device).to(device)
 
