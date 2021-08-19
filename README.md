@@ -1,7 +1,7 @@
 # The PPT model for Basket Recommendation
 The implementation of the paper:
 
-M^2: Mixed Models with Preferences, Popularities and Transitions for Next-Basket Recommendation
+$M^2$: Mixed Models with Preferences, Popularities and Transitions for Next-Basket Recommendation
 
 Arxiv: https://arxiv.org/abs/2004.01646
 
