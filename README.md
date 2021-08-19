@@ -35,4 +35,4 @@ python main.py --dataset=TaFeng --decay=0.6 --l2=1e-2 --dim=32 --numIter=150 --m
 
 For the baseline methods implemented by us (e.g., Dream and FPMC), you could reproduce the results by simply specifying the name of the model in main.py, and 
 use the hyper parameters presented in the paper.
-For Sets2Set, we used the source code provided by the authors, you could find the source code [here](https://github.com/HaojiHu/Sets2Sets).1
+For Sets2Set, we used the source code provided by the authors, you could find the source code [here](https://github.com/HaojiHu/Sets2Sets).
