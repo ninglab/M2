@@ -44,10 +44,6 @@ def evalByUser(model, dataLoader, config, device, isTrain):
         with torch.no_grad():
             if config.model == 'SNBR':        
                 scores, gate = model.forward(samples, decays, offset, his, isEval=1)
-            elif config.model == 'RNBR':
-                scores = model.forward(samples, offset, lenX, his, isEval=1)
-            elif config.model == 'UNBR':
-                scores = model.forward(samples, decays, offset, lenX, his, isEval=1)
             elif config.model == 'FREQ' or config.model == 'FREQP':
                 scores = model.forward(his)
 
