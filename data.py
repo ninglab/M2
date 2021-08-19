@@ -374,13 +374,6 @@ class dataLoader():
 
         return Trans
             
-            
-            
-
-
- 
-
-
 if __name__ == '__main__':
     dataset = 'TaFeng'
     data    = dataLoader('TaFeng')
