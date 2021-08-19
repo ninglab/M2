@@ -32,3 +32,7 @@ Please refer to the following example on how to train and evaluate the model (yo
 ```
 python main.py --dataset=TaFeng --decay=0.6 --l2=1e-2 --dim=32 --numIter=150 --model=SNBR --isTrain=1 --k=0 --testOrder=1 --isPreTrain=0 --batchSize=100 --mode='time_split'
 ```
+
+For the baseline methods implemented by us (e.g., Dream and FPMC), you could reproduce the results by simply specifying the name of the model in main.py, and 
+use the hyper parameters presented in the paper.
+For Sets2Set, we used the source code provided by the authors, you could find the source code [here](https://github.com/HaojiHu/Sets2Sets).1
