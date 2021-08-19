@@ -28,18 +28,30 @@ if __name__=='__main__':
     parser.add_argument('--isTrain', type=int, default=0)
     parser.add_argument('--isPreTrain', type=int, default=0)
     parser.add_argument('--model', type=str, default='POP')
+    parser.add_argument('--mode', type=str, default='time_split')
 
     config = parser.parse_args()
 
-    dataset = dataLoader(config.dataset, config)
+    if config.mode == 'time_split':
+        from data import dataLoader
+        dataset = dataLoader(config.dataset, config)
+    elif config.mode == 'seq_split':
+        from data_leave_one import dataLoader
+        dataset = dataLoader(config.dataset, config)
 
     #default it runs in testing mode
     #no need to turn parameters
     if config.model == 'POP':
+        if config.mode == 'time_split':
+            weight_file = 'weights/'+config.dataset+'_POP.txt'
+        elif config.mode == 'seq_split':
+            weight_file = 'weights_leave_one/'+config.dataset+'_POP.txt'
+
         gloFreqVec = countFre(dataset.testList, dataset.numItemsTest)
-        with open('weights/'+config.dataset+'_POP.txt', 'w') as f:
+        with open(weight_file, 'w') as f:
             for i in range(len(gloFreqVec)):
                 f.write(str(gloFreqVec[i])+'\n')
+            
             
 
     testSet = dataset.testList
