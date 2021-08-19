@@ -30,7 +30,6 @@ class FREQP(nn.Module):
         embds_his = self.his_embds(his)
         embds_global = self.global_embds(global_freq)
 
-        pdb.set_trace()
         gate = torch.sigmoid(self.gate_his(embds_his) + self.gate_global(embds_global))
 
         res = gate * his + (1.0-gate) * global_freq_soft
