@@ -1,4 +1,4 @@
-# The PPT model for Basket Recommendation
+# The M2 model for Basket Recommendation
 The implementation of the paper:
 
 M2: Mixed Models with Preferences, Popularities and Transitions for Next-Basket Recommendation
